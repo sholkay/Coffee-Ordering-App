@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * Calculates the price of the order based on the current quantity.
-     *@param hasWhippedCream
-     * @param hasChocolate
+     *@param hasWhippedCream whether customer added cream or not.
+     * @param hasChocolate whether customer added chocolate or not.
      * @return the price
      */
     private int calculatePrice(Boolean hasWhippedCream, Boolean hasChocolate) {
@@ -76,12 +76,12 @@ public class MainActivity extends AppCompatActivity {
      * @return the text summary
      */
     private String createOrderSummary(String name, int price, boolean hasWhippedCream, boolean hasChocolate){
-        String priceMessage = "Name: " + name;
-        priceMessage += "\nAdd whipped cream? " + hasWhippedCream;
-        priceMessage += "\nAdd chocolate? " + hasChocolate;
-        priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage += "\nThank You!";
+        String priceMessage = getString(R.string.order_summary_name, name);
+        priceMessage += "\n" + getString(R.string.order_summary_whipped_cream, hasWhippedCream);
+        priceMessage += "\n" + getString(R.string.order_summary_chocolate, hasChocolate);
+        priceMessage += "\n" + getString(R.string.order_summary_quantity, quantity);
+        priceMessage += "\n" + getString(R.string.order_summary_price, "$" + price);
+        priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
     }
     /**
